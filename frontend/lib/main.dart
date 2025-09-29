@@ -8,6 +8,12 @@ import 'splash/splash_page.dart';
 
 import 'home_page_user/cart_provider.dart';
 import 'home_page_user/address_provider.dart';
+import 'providers/chat_provider.dart';
+import 'providers/location_provider.dart';
+import 'home_page_user/demo_page.dart';
+import 'realtime/realtime.dart';
+import 'realtime/ui/realtime_test_page.dart';
+import 'realtime/ui/main_demo_page.dart';
 
 void main() {
   runApp(FoodDeliveryApp());
@@ -20,6 +26,10 @@ class FoodDeliveryApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (context) => CartProvider()),
         ChangeNotifierProvider(create: (context) => AddressProvider()),
+        ChangeNotifierProvider(create: (context) => ChatProvider()),
+        ChangeNotifierProvider(create: (context) => LocationProvider()),
+        ChangeNotifierProvider(create: (context) => RealtimeChatProvider()),
+        ChangeNotifierProvider(create: (context) => RealtimeLocationProvider()),
       ],
       child: MaterialApp(
         title: 'Food Delivery',
@@ -31,6 +41,10 @@ class FoodDeliveryApp extends StatelessWidget {
           '/permissions': (_) => PermissionPage(),
           '/auth': (_) => LoginFormPage(),
           '/register': (_) => RegisterFormPage(),
+          '/demo': (_) => DemoPage(),
+          '/realtime-demo': (_) => RealtimeDemoPage(),
+          '/websocket-test': (_) => RealtimeTestPage(),
+          '/main-demo': (_) => MainDemoPage(),
         },
         debugShowCheckedModeBanner: false,
       ),
